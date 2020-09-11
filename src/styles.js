@@ -5,16 +5,18 @@ export const Container = styled.div `
     align-items: center;
     flex-direction: column;
 
-    h1 {
-        font-size: 2em;
-        font-weight: 700;
-        margin-top: 16px;
+    img {
+        height: 2.5em;
+        margin: 1em 0;
     }
 `;
 
-export const Form = styled.form ` 
-    margin-top: 2em;
-    width: 550px;
+export const Form = styled.form `
+    width: 35%;
+
+    @media (max-width: 780px) {
+        width: 80%;
+    }
 `;
 
 export const FormGroup = styled.div ` 
@@ -23,8 +25,15 @@ export const FormGroup = styled.div `
     margin-bottom: 1em;
 
     input, select {
-        padding: 5px;
-        border: 1px solid black;
+        padding: 10px;
+        border: 1px solid transparent;
+        background: var(--dark-input);
+        border-radius: 3px;
+        transition: border-color .2s ease-out;
+
+        &:focus {
+            border-color: var(--yellow);
+        }
     }
 
     label {
@@ -34,27 +43,40 @@ export const FormGroup = styled.div `
 `;
 
 export const Button = styled.button ` 
-    background: black;
-    color: white;
+    background: linear-gradient(to right, var(--green), var(--orange), var(--orange), var(--yellow));
+    color: var(--dark);
     width: 100%;
     padding: 10px;
     cursor: pointer;
     margin-top: 1em;
     font-weight: 700;
+    border-radius: 3px;
+    background-size: 300% 100%;
+    transition: all .3s ease-out;
+
+    &:hover {
+        background-position: 100% 0;
+    }
 `;
 
 
 export const ResultContainer = styled.div `
     margin-top: 2em;
-    background: black;
-    color: white;
+    background: var(--dark-input);
+    color: var(--white);
+    border-radius: 3px;
     padding: 24px;
 
     ul {
         list-style: none;
     }
 
+    ul li {
+        font-weight: 700;
+    }
+
     ul li strong {
-        color: gray;
+        color: var(--green);
+        font-weight: 700;
     }
 `;
